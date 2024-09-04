@@ -1,0 +1,35 @@
+{% load static %}
+
+
+<head>
+    <title> CollectionsHaven </title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+</head>
+<body class="body"> 
+        <nav class = "nav">
+            <div class = "logo">
+                {% comment %} <img src="{% static 'images/logo.png' %}" alt="logo" class="logo"> {% endcomment %}
+                <h1 class = "title">TemuHobi</h1>
+            </div>
+            <ul class = "nav-links">
+                {% comment %} <li><a>Home</a></li> {% endcomment %}
+            </ul>
+        </nav>
+
+        <div class = 'container-1'>
+            <div class = 'img-container'>
+            </div>
+            <div class = 'container-2'>
+                <p><b>Name</b> : {{name}} </p>
+                <p><b>Price</b>: {{price}} </p>
+                <p><b>Description</b>: {{description}}</p>
+                <p><b>Rarity</b>: {{rarity}} </p>
+                <p><b>Rating</b>: {{rating}}/10 </p>
+            </div>
+        </div>
+</body>
+
+
