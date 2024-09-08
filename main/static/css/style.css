@@ -49,6 +49,19 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
+    gap:none;
+}
+
+.span1{
+    color: #615a5a;
+}
+
+
+.span1, .span2 {
+    display: inline-block;
+    letter-spacing: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
 }
 
 .container-1{
