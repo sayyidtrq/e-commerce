@@ -31,5 +31,11 @@ Jawaban:
 
 4.  
     1. Bahasa pemrograman python, seperti yang kita tahu python adalah salah astu high level language sehingga mempermudah    user membuat back-end programnya , python merupakan salah satu bahasa pemrograman yang memiliki syntax yang mudah
-    2. 
+    2. Banyak fitur bawaaan, engguna tidak perlu mencari atau mengonfigurasi banyak library eksternal untuk menjalankan fitur umum seperti otentikasi, manajemen pengguna, sistem admin, formulir, atau keamanan (CSRF, XSS, dll.). Hal ini membuat Django ideal bagi pemula yang belum memiliki pengalaman banyak dalam pengelolaan dependensi.
+    3. Django memiliki komunitas yang besar dan aktif, sehingga mudah untuk menemukan bantuan, tutorial, atau solusi untuk masalah yang dihadapi pemula. Banyak sumber daya pembelajaran seperti forum, kursus online, blog, dan video tutorial yang tersedia.
+    4. Django memiliki fokus yang kuat pada keamanan. Misalnya, Django secara otomatis melindungi aplikasi dari serangan umum seperti Cross-Site Scripting (XSS), Cross-Site Request Forgery (CSRF), SQL Injection, dan lainnya. Fitur keamanan bawaan ini memungkinkan pemula untuk fokus pada pengembangan fitur tanpa khawatir terhadap aspek keamanan yang kompleks.
+
+5.  Karena pada django menyediakan fitur yang memungkinkan pengembang untuk berinteraksi dengan basis data menggunakan objek Python, alih-alih menulis kode SQL secara langsung. Dengan Django ORM, pengembang dapat melakukan operasi database seperti query, insert, update, dan delete menggunakan metode Python tanpa perlu memahami atau menulis SQL. 
+
+    Pada
       
