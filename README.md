@@ -2,6 +2,10 @@ Nama : Sayyid Thariq Gilang Muttaqien
 NPM  : 2306275714
 Kelas : B
 
+link web tugas 2:
+    
+
+
 Pertanyaan: 
 
 1. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
@@ -25,7 +29,7 @@ Jawaban:
     5. Lalu setelah proses pengistallan selesai tuliskan command "django-admin startproject <nama project>" pada terminal folder lokal
     6. Django telah terinstall
 
-2. 
+2. berikut bagan dan penjelesannya https://docs.google.com/document/d/1uYkG4FoWOHOEJsm158XuZvZx0qlP1KN8iJeCz1XC9RA/edit?usp=sharing 
 
 3.  Git adalah sistem kontrol versi untuk melacak perubahan dalam berkas komputer dan mengoordinasikan pekerjaan pada berkas tersebut di antara banyak orang. Fungsi Git yang paling mendasar dan penting adalah memungkinkan tim untuk menambahkan (dan menggabungkan) kode pada saat yang sama ke proyek yang sama. Dengan menambahkan kemampuan ini ke proyek, tim menjadi lebih efisien dan memberi mereka kemampuan untuk mengerjakan proyek yang lebih besar dan masalah yang lebih kompleks. Ada juga banyak hal lain yang dilakukan Git dengan sangat baik: ia memungkinkan kita mengembalikan perubahan, membuat cabang baru untuk menambahkan fitur baru, menyelesaikan konflik penggabungan, dan seterusnya.
 
@@ -36,6 +40,4 @@ Jawaban:
     4. Django memiliki fokus yang kuat pada keamanan. Misalnya, Django secara otomatis melindungi aplikasi dari serangan umum seperti Cross-Site Scripting (XSS), Cross-Site Request Forgery (CSRF), SQL Injection, dan lainnya. Fitur keamanan bawaan ini memungkinkan pemula untuk fokus pada pengembangan fitur tanpa khawatir terhadap aspek keamanan yang kompleks.
 
 5.  Karena pada django menyediakan fitur yang memungkinkan pengembang untuk berinteraksi dengan basis data menggunakan objek Python, alih-alih menulis kode SQL secara langsung. Dengan Django ORM, pengembang dapat melakukan operasi database seperti query, insert, update, dan delete menggunakan metode Python tanpa perlu memahami atau menulis SQL. 
-
-    Pada
       

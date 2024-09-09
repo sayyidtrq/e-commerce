@@ -28,7 +28,7 @@ DEBUG = True
 ALLOWED_HOSTS = [
     "localhost", 
     "127.0.0.1", 
-    "sayyid-thariq31-ecommerce.pbp.cs.ui.ac.id"
+    "sayyid-thariq31-temuhobi.pbp.cs.ui.ac.id"
 ]
 
 

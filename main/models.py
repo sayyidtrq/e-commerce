@@ -7,3 +7,4 @@ class ItemEntry (models.Model):
     rarity = models.IntegerField(max_length=2)
     rating = models.IntegerField(max_length=2)
     kategories = models.CharField(max_length=255)
+
