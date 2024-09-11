@@ -3,7 +3,8 @@ NPM  : 2306275714
 Kelas : B
 
 link web tugas 2:
-    
+http://sayyid-thariq31-temuhobi.pbp.cs.ui.ac.id/
+
 
 
 Pertanyaan: 
@@ -28,6 +29,44 @@ Jawaban:
     4. Menginstal django melalui terminal dengan command "pip install django"
     5. Lalu setelah proses pengistallan selesai tuliskan command "django-admin startproject <nama project>" pada terminal folder lokal
     6. Django telah terinstall
+
+    - Membuat aplikasi bernama main
+    1. Melakukan command di terminal "django-admin startapp main"
+    2. Lalu folder main akan terbuat sebagai branch dari folder utama
+
+    - Melakukan routing pada proyek agar dapat menjalankan aplikasi main
+    1. Pada settings.py di folder project kita cari variabel INSTALLED_APPS
+    2. Tambahkan main pada installed apps tersebut
+    3. Atur dan ubah urls.py pada folder project sesuai dengan keinginan kita adn masukan main pada kodenya
+
+    - Membuat model pada aplikasi main dengan nama Product dan memiliki atribut wajib sebagai berikut.
+    1. Pada models.py di apps main ubah buat attribute dan datatypenya serta limitasi penulisan datatypenya 
+    2. Setelah sudah merubah/membuat lakukan "python manage.py makemigration" untuk memberikan migrasi pada model data yang belum diapply ke model
+    3. lalu lakukan "python manage.py migrate" untuk apply perubahan tersebut apda data
+
+    - Membuat sebuah fungsi pada views.py untuk dikembalikan ke dalam sebuah template HTML yang menampilkan nama aplikasi serta nama dan kelas kamu.
+    1. Menuliskan attribute yang tadi sudah dibuat dan coba masukan nilai ke dalamnya untuk dishow pada html
+    2. Perhatikan data type, jangan sampai salah
+    3. return dengan format seperti ini return render(request, "main.html", context)
+    - Membuat sebuah routing pada urls.py aplikasi main untuk memetakan fungsi yang telah dibuat pada views.py.
+    1. tulis code berikut app_name = 'main'
+        urlpatterns = [
+            path('', show_main, name='show_main'),
+        ]
+
+        pada urls.py dalam main
+        ini berfungsi apabila path/ url sama dengan kosong maka ia akan show_main ambil fungsi show_main dari views yang mengembalikan html 
+
+    - Melakukan deployment ke PWS terhadap aplikasi yang sudah dibuat sehingga nantinya dapat diakses oleh teman-temanmu melalui Internet.
+    1. buat project baru di pwsnya
+    2. melakukan git remote add <url>
+    3. git branch -M main
+    4. git push pws main:master
+    5. tunggu build lalu selesai
+
+    Membuat sebuah README.md yang berisi tautan menuju aplikasi PWS yang sudah di-deploy, serta jawaban dari beberapa pertanyaan berikut.
+    - ini gausah , karena sangat mudah
+    
 
 2. berikut bagan dan penjelesannya https://docs.google.com/document/d/1uYkG4FoWOHOEJsm158XuZvZx0qlP1KN8iJeCz1XC9RA/edit?usp=sharing 
 
