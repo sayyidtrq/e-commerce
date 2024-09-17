@@ -80,3 +80,134 @@ Jawaban:
 
 5.  Karena pada django menyediakan fitur yang memungkinkan pengembang untuk berinteraksi dengan basis data menggunakan objek Python, alih-alih menulis kode SQL secara langsung. Dengan Django ORM, pengembang dapat melakukan operasi database seperti query, insert, update, dan delete menggunakan metode Python tanpa perlu memahami atau menulis SQL. 
       
+
+TUGAS 3
+
+1. Jelaskan mengapa kita memerlukan data delivery dalam pengimplementasian sebuah platform?
+
+Jawab:
+
+Data delivery sudah menjadi pondasi vital dalam pengimplementasian sebuah plaform. Data delivery berfungsi sebagai jembatan ataupun infrastruktur yang memungkinkan berbagai elemen platform untuk berkomunikasi secara seamless. Data pada berbagai elemen, seperti dari server ke klien ataupun sebaliknya, dari database ke user interface dapat mengalir dengan lancar, aman, dan tepat waktu. Tanpa adanya data delivery, maka setiap elemen pada platform akan terisolasi. Hal itu menyebabkan fungsionalitas dari suatu platform akan menjadi tidak sesuai harapan. Selain itu, data delivery yang baik dapat meningkatkan skalabilitas dan memungkinkan platform untuk beradaptasi dengan cepat dengan perubahan kebutuhan dan menangani lonjakan lalu lintas data.
+
+2. Menurutmu, mana yang lebih baik antara XML dan JSON? Mengapa JSON lebih populer dibandingkan XML?
+
+Jawab:
+
+Dalam format pertukaran data yang umum digunakan, saya memilih JSON untuk digunakan. Banyak aspek yang memengaruhi JSON lebih populer dari XML, seperti:
+
+Kesederhanaan JSON memiliki sintaks yang lebih sederhana. Tidak seperti XML, JSON tidak memerlukan suatu tag pembuka ataupun penutup. Dari segi struktur, JSON memiliki struktur yang mirip dengan object dan array dalam JavaScript
+Ukuran File JSON umumnya menghasilkan file dengan ukuran lebih kecil dbandingkan XML karena tidak memerlukan tag penutup
+Parsing yang lebih cepat JSON dapat di parse menjadi objek JavaScript dengan sangat cepat
+Struktur data yang lebih fleksibel JSON mendukung tipe data, seperti array dan object nested dengan lebih alami
+Popularisasi dalam API Banyak API yang menggunakan JSON karena kemudahan dalam penggunaanya
+Walaupun XML menawarkan beberapa fitur tambahan seperti mendukung namespace dan skema yang lebih kuat untuk validasi, JSON lebih populer karena lebih ringkas dan mudah dalam pengimplementasiannya.
+
+3. Jelaskan fungsi dari method is_valid() pada form Django dan mengapa kita membutuhkan method tersebut?
+
+Jawab:
+
+Method is_valid() berperan penting dalam proses validasi data yang diinput oleh pengguna. Method ini berfungsi untuk memeriksa apakah data yang disubmit melalui form sudah memenuhi semua aturan validasi, seperti apakah semua field yang required sudah diisi, apakah format data sudah sesuai, atau apakah data sudah memenuhi batasan khusus yang telah didefinisikan. Jika semua data valid, maka is_valid() akan mengembalikan True dan jika ada yang tidak valid, akan mengembalikan False. Selain itu, jika validasi gagal, Django sendiri akan mengisi dictionary form.errors dengan pesan error untuk setiap field yang tidak valid. Selain itu, method ini juga membantu mencegah data yang tidak valid atau berbahaya masuk ke dalam sistem untuk melindungi aplikasi dari potensi bug atau serangan keamanan.
+
+4. Mengapa kita membutuhkan csrf_token saat membuat form di Django? Apa yang dapat terjadi jika kita tidak menambahkan csrf_token pada form Django? Bagaimana hal tersebut dapat dimanfaatkan oleh penyerang?
+
+Jawab:
+
+Cross-Site Request Forgery Token merupakan suatu token untuk melindungi aplikasi dari serangan Cross Site Request Forgery. Dengan adanya csrf_token, dapat memastikan bahwa request POST berasal dari situs yang sah dan mencegah modifikasi data yang tidak sah melalui request palsu. Tanpa adanya csrf_token, penyerang akan membuat suatu request palsu menggunakan nama pengguna yang sudah terotentikasi, mengubah data-data sensitif, ataupun informasi pribadi pengguna bisa terekspos dan termanipulasi.
+
+Jika suatu website tidak memiliki csrf_token, maka penyerang akan membuat situs web berbahaya atau memodifikasi situ yang sudah ada. Lalu, pengguna yang sudah login ke aplikasi Django akan tanpa sadar mengakses situs berbahaya tersebut. Setelah itu, situs berbahaya akan memuat form tersembunyi yang mengirim request ke aplikasi Django. Setelah itu, penyerang akan memanfaatkan cookies sesi yang valid dari pengguna. Request palsu akan terlihat sah karena berasal dari browser pengguna yang sudah terotentikasi. Tanpa adanya csrf_token, server tidak dapat membedakan request yang sah dan yang palsu.
+
+Django menghasilkan token unik untuk setiap sesi pengguna. Token ini disertakan dalam setiap form sebagai field tersembunyi. Saat form disubmit, Django akan memeriksa kecocokan token. Jika token berbeda, maka request akan ditolak. Dengan itu, keamanan website akan terjaga.
+
+5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
+
+    1. Membuat base.html untuk menjadi page utama dalam website
+    {% load static %}
+    <!DOCTYPE html>
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            {% block meta %} {% endblock meta %}
+        </head>
+        <body>
+            {% block content %} {% endblock content %}
+        </body>
+    </html>
+
+        base.html saya kosong kareena saya taro navbar dan homepage layout saya di main
+
+    2. Menambahkan BASE_DIR pada settings.py agar project mengenali html yang akan menjadi template utama
+    'DIRS': [BASE_DIR / 'templates'],
+
+    3. Menambahkan atribut time dan id pada model product
+    from django.db import models
+    import uuid
+
+    class ItemEntry (models.Model):
+        id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+        name = models.CharField(max_length=255)
+        price = models.IntegerField()
+        description = models.TextField()
+        rarity = models.IntegerField()
+        rating = models.IntegerField()
+        kategories = models.CharField(max_length=255, default='Sneakers')  
+        time = models.DateTimeField(auto_now_add=True) 
+
+    4. Membuat forms.py untuk mendeklarasikan atribut-atribut dari model yang membutuhkan input dari user
+        
+        from django.forms import ModelForm
+        from main.models import ItemEntry
+
+        class ItemEntryForm(ModelForm):
+            class Meta:
+                model = ItemEntry
+                fields = ['name', 'price', 'description', 'rarity', 'rating', 'kategories']
+                labels = {
+                    'name': 'Name',
+                    'price': 'Price',
+                    'description': 'Description',
+                    'rarity': 'Rarity',
+                    'rating': 'Rating',
+                    'kategories': 'Kategories'
+                }
+        
+    5. Membuat method create_item_entry untuk mengambil input user sesuai dengan forms.py
+
+        def create_item_entry(request):
+            if request.method == 'POST':
+                form = ItemEntryForm(request.POST)
+                if form.is_valid():
+                    form.save()
+                    return redirect('main:show_main')
+            else:
+                form = ItemEntryForm()
+            return render(request, 'main/create_item_entry.html', {'form': form})
+    
+    6. Membuat method show_main untuk menampilkannya di main.html
+        def show_main(request):
+            itemEntry = ItemEntry.objects.all()
+
+            context = {
+                'nama_orang': 'Sayyid Thariq',
+                'npm': '2306275714',
+                'kelas': 'Kelas B',
+                'name': 'Jordan 1 Retro High OG',
+                'price': 'IDR 2.000.000',
+                'description': 'The Air Jordan 1 Retro High OG is a shoe that needs no introduction. It is the shoe that started it all. It is the first ever Air Jordan sneaker released back in 1985, created by the one and only Michael Jordan. The shoe was designed by Peter Moore and it was the only Air Jordan to feature the iconic Nike Swoosh logo. The Air Jordan 1 is still popular today, and has been released in more colorways than any other Air Jordan model.',
+                'rarity': '7',
+                'rating': '9',
+                'kategories': 'Sneakers',
+                'itemEntry': itemEntry,
+        }
+
+            return render(request, 'main.html', context)
+
+6. SS POSTMAN
+
+https://docs.google.com/document/d/13hFtp96QTZrZNLLXacsUZ_GF2Yfk1NmXjdpMHrSF9CI/edit?usp=sharing 
+
+
+
+        
+
+

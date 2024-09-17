@@ -1,126 +1,120 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TemuHobi</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Source+Code+Pro:ital,wght@0,200..900&display=swap" rel="stylesheet">
-    <style>
-        .body{
-            background-color: #F2F0F1;
-            font-family: 'Source Code Pro', monospace;
-            margin: 0;
-        }
-
-        .source-code-pro {
-            font-family: "Source Code Pro", monospace;
-            font-optical-sizing: auto;
-            font-weight: 500;
-            font-style: normal;
-        }
-
-        /* DESKTOP NAV */
-        nav, .nav-links {
-            display: flex;
-            text-decoration: antiquewhite;
-        }
-
-        nav {
-            align-items: center;
-            height: 8vh;
-            background-color: whitesmoke;
-            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
-            padding: 5px 100px;
-        }
-
-        .nav-links {
-            gap: 4rem;
-            list-style: none;
-            font-size: 1.5rem;
-        }
-
-        a {
-            color: black;
-            text-decoration: none;
-            text-decoration-color: white;
-        }
-
-        .logo {
-            font-size: 1rem;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .span1 {
-            color: #423f3f;
-        }
-
-        .span1, .span2 {
-            display: inline-block;
-            letter-spacing: 0;
-            font-size: 1.5rem;
-            font-weight: 600;
-        }
-
-        .container-1 {
-            margin: 50px;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            border-radius: 15px;
-            border: 2px solid rgb(213, 202, 185);
-            padding: 20px;
-            gap: 20px;
-        }
-
-        .img-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border: 2px solid rgb(109, 99, 99);
-            border-radius: 15px;
-            width: 40vw;
-        }
-
-        .container-2 {
-            border-radius: 15px;
-            border: 2px solid rgb(109, 99, 99);
-            padding: 20px;
-            width: 60vw;
-        }
-    </style>
-</head>
-<body class="body">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+  </head>
+  <body class="body">
     <nav class="nav">
         <div class="logo">
             <span class="span1">Temu</span>
             <span class="span2">Hobi</span>
         </div>
         <ul class="nav-links">
-            <!-- <li><a>Home</a></li> -->
+            <li class = 'nav-text'><a href= '#home' >Home</a></li>
+            <li class = 'nav-text'><a >About</a></li>
+            <li class = 'nav-text'><a >On Sales</a></li>
+            <li class = 'nav-text'><a >New Arrival</a></li>
+            <li class = 'nav-text'><a >Kategories</a></li>
         </ul>
     </nav>
-    <p ><b>{{nama_orang}} </b></p>
-    <p><b>{{npm}}</b></p>
-    <p><b>{{kelas}}</b></p>
+    <section id="home">
     <div class="container-1">
-        <div class="img-container">
-            <img src="{% static 'images/jordan1.png' %}" alt="{{name}}" class="img">
+        <div class="container-2">
+            <h1 class='h1'>Welcome to Temu Hobi</h1>
+            <p class='text'>Temu Hobi is a website that provides
+                a variety of items that you can choose according to your hobbies.
+                We provide a variety of items ranging from rare items to items that are
+                commonly found. You can also see the details of each item that we provide.
+            </p>
+        
+            <div class="btn-container-1">
+                <a href="#add-item">
+                    <button class="btn">Add Items</button>
+                </a>
+                <a href="#goodies">
+                    <button class="btn-2">See Goodies</button>
+                </a>
+            </div>
         </div>
+        <div class="img-container">
+            <img src="{% static 'images/jordans.png' %}" alt="{{name}}" class="img-1">
+        </div>
+    </div>
+    </section>
+    <section id='goodies'>
+    <h2 class="h2"> PRODUCT EXAMPLE </h2>
+    <div class="container-1">
+        <div class="container-pe">
+            <div class="img-container-pe">
+                <img src="{% static 'images/ronaldo (1).png' %}" alt="{{name}}" class="img-pe">
+                <img src="{% static 'images/barca.png' %}" alt="{{name}}" class="img-pe">
+                <img src="{% static 'images/char.png' %}" alt="{{name}}" class="img-pe">
+                <img src="{% static 'images/hw1.png' %}" alt="{{name}}" class="img-pe">
+                <img src="{% static 'images/hw2.png' %}" alt="{{name}}" class="img-pe">
+                <img src="{% static 'images/jordan1.png' %}" alt="{{name}}" class="img-pe">
+                <img src="{% static 'images/jordan2.png' %}" alt="{{name}}" class="img-pe">
+                <img src="{% static 'images/jordan3.png' %}" alt="{{name}}" class="img-pe">
+            </div>
+        </div>
+    </div>
+    </section>
+    <div class="container-1">
         <div class="container-2">
             <p><b>Name</b>: {{name}}</p>
             <p><b>Price</b>: {{price}}</p>
             <p><b>Description</b>: {{description}}</p>
             <p><b>Rarity</b>: {{rarity}}</p>
-            <p><b>Rating</b>: {{rating}}/10</p>
+            <p><b>Rating</b>: {{rating}}</p>
             <p><b>Kategories</b>: {{kategories}}</p>
         </div>
+        <div class="img-container">
+            <img src="{% static 'images/jordan1.png' %}" alt="{{name}}" class="img">
+        </div>
     </div>
+    <section id="add-item">
+        <div class="container-3">
+            <h1 class = "item_h1">Item List</h1>
+            {% if not itemEntry %}
+            <p>Belum ada data Item.</p>
+            {% else %}
+            <table class = "item_table">
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Description</th>
+                <th>Rarity</th>
+                <th>Rating</th>
+                <th>Kategories</th>
+                <th>Time Added</th>
+            </tr>
+
+            {% comment %} Berikut cara memperlihatkan data mood di bawah baris ini 
+            {% endcomment %} 
+            {% for item_entry in itemEntry %}
+            <tr>
+                <td>{{ item_entry.name }}</td>
+                <td>Rp{{ item_entry.price }}</td>
+                <td>{{ item_entry.description }}</td>
+                <td>{{ item_entry.rarity }}</td>
+                <td>{{ item_entry.rating }}/10</td>
+                <td>{{ item_entry.kategories }}</td>
+                <td>{{ item_entry.time }}</td>
+            </tr>
+            {% endfor %}
+            </table>
+            {% endif %}
+            <a href="{% url 'main:create_item' %}">
+            <div class="btn_container">
+                <button class="item_button">Add New Item</button>
+            </div>
+            </a>
+            <p ><b>{{nama_orang}} </b></p>
+            <p><b>{{npm}}</b></p>
+            <p><b>{{kelas}}</b></p>
+        </div>
+    </section>
 </body>
 </html>
