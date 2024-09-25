@@ -23,6 +23,7 @@
     <section id="home">
     <div class="container-1">
         <div class="container-2">
+            <p class='text'>Hello  ! <b> {{nama_orang}} </b></p>
             <h1 class='h1'>Welcome to Temu Hobi</h1>
             <p class='text'>Temu Hobi is a website that provides
                 a variety of items that you can choose according to your hobbies.
@@ -71,7 +72,7 @@
             <p><b>Kategories</b>: {{kategories}}</p>
         </div>
         <div class="img-container">
-            <img src="{% static 'images/jordan1.png' %}" alt="{{name}}" class="img">
+            <img src="https://i.pinimg.com/474x/76/48/df/7648dfc163bf957779910e2f4deccd16.jpg" alt="{{name}}" class="img">
         </div>
     </div>
     <section id="add-item">
@@ -111,10 +112,16 @@
                 <button class="item_button">Add New Item</button>
             </div>
             </a>
-            <p ><b>{{nama_orang}} </b></p>
-            <p><b>{{npm}}</b></p>
-            <p><b>{{kelas}}</b></p>
         </div>
+        <a href="{% url 'main:logout' %}">
+            <div class="btn_container">
+                <button class="item_button">Logout</button>
+            </div>
+          </a>
+          <p><b>{{nama_owner}}</b></p>
+          <p><b>{{npm}}</b></p>
+          <p><b>{{kelas}}</b></p>
+        <h5>Sesi terakhir login: {{ last_login }}</h5>
     </section>
 </body>
 <style>
@@ -201,10 +208,10 @@
       
       /* CONTAINER */
       .container-1 {
-        margin: 50px;
-        height: 100vh;
+        height: 90vh;
         display: flex;
         justify-content: center;
+        align-items: center;
         padding: 20px;
         gap: 20px;
       }
@@ -222,7 +229,7 @@
       }
       
       .img{
-        width: 100%;
+        width: 300px;
         height: 100%;
         object-fit:contain;
         border-radius: 15px;
@@ -293,6 +300,7 @@
         align-items: center;
         font-size: 2rem;
         font-weight: 800;
+        margin-bottom: 0px;
       }
       
       .container-pe{
