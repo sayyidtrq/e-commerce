@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, reverse
 from main.models import ItemEntry
 from main.forms import ItemEntryForm
 from django.http import HttpResponse
@@ -28,7 +28,7 @@ def show_main(request):
         'npm': '2306275714',
         'kelas': 'Kelas B',
         'itemEntry': itemEntry,
-        'last_login': request.COOKIES['last_login'],
+        'last_login': request.COOKIES['last_login']
     }
 
     return render(request, "main.html", context)
@@ -64,6 +64,29 @@ def create_item(request):
     context = {'form': form}
     return render(request, "create_item.html", context)
 
+def edit_item(request, id):
+    item = ItemEntry.objects.get(pk=id)
+
+    form = ItemEntryForm(request.POST or None, instance=item)
+
+    if form.is_valid() and request.method == "POST":
+        # Simpan form dan kembali ke halaman awal
+        form.save()
+        return HttpResponseRedirect(reverse('main:show_main'))
+
+    context = {'form': form}
+    return render(request, "edit_item.html", context)
+
+def delete_item(request, id):
+    # Get mood berdasarkan id
+    item = ItemEntry.objects.get(pk=id)
+    # Hapus mood
+    item.delete()
+    # Kembali ke halaman awal
+    return HttpResponseRedirect(reverse('main:show_main'))
+
+
+
 def show_xml(request):
     data = ItemEntry.objects.all()
     return HttpResponse(serializers.serialize("xml", data), content_type="application/xml")
@@ -90,6 +113,8 @@ def login_user(request):
             response = HttpResponseRedirect(reverse("main:show_main"))
             response.set_cookie('last_login', str(datetime.datetime.now()))
             return response
+      else:
+            messages.error(request, 'Invalid username or password.')
 
    else:
       form = AuthenticationForm(request)
@@ -101,3 +126,5 @@ def logout_user(request):
     response = HttpResponseRedirect(reverse('main:login'))
     response.delete_cookie('last_login')
     return response
+
+

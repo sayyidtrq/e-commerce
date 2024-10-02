@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+{% include 'navbar.html' %}
+
+<section id="edit-item" class="py-12 bg-gray-100 min-h-screen">
+    <div class="flex justify-center items-center">
+        <div class="w-full max-w-lg bg-white rounded-lg shadow-lg p-8 border border-gray-300">
+            <h1 class="text-2xl font-bold text-center mb-6">Edit Item</h1>
+
+            <!-- Form -->
+            <form method="POST" class="space-y-4">
+                {% csrf_token %}
+                
+                <!-- Render the form fields -->
+                <div class="space-y-4">
+                    {{ form.as_p }}
+                </div>
+
+                <!-- Submit button -->
+                <div class="flex justify-center mt-6">
+                    <button type="submit" class="bg-black text-white py-2 px-6 rounded-lg hover:bg-gray-800 transition transform hover:scale-105 shadow-md">
+                        Save Changes
+                    </button>
+                </div>
+            </form>
+
+            <!-- Cancel button -->
+            <div class="flex justify-center mt-4">
+                <a href="{% url 'main:show_main' %}" class="text-gray-600 py-2 px-6 border border-gray-300 rounded-lg hover:bg-gray-100 hover:border-gray-500 transition transform hover:scale-105 shadow-sm">
+                    Cancel
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}

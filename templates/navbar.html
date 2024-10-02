@@ -1,0 +1,61 @@
+<nav class="fixed top-0 left-0 w-full bg-white shadow-lg py-4 px-8 z-50 flex justify-between items-center">
+    <div class="text-xl font-semibold">
+        <span class="text-gray-600">Temu</span>
+        <span class="text-black">Hobi</span>
+    </div>
+    <ul class="nav1 hidden md:flex space-x-8 text-gray-500">
+        <li class="hover:text-black transition transform hover:scale-110 cursor:pointer"><a href='#home'>Home</a></li>
+        <li class="hover:text-black transition transform hover:scale-110 cursor:pointer"><a>About</a></li>
+        <li class="hover:text-black transition transform hover:scale-110 cursor:pointer"><a>On Sales</a></li>
+        <li class="hover:text-black transition transform hover:scale-110 cursor:pointer"><a>New Arrival</a></li>
+        <li class="hover:text-black transition transform hover:scale-110 cursor:pointer"><a href="{% url 'main:logout' %}">
+            <button class="bg-red-400 text-white py-1 px-2 rounded-lg hover:bg-red-600 transition transform hover:scale-110" style="font-size: 0.8rem">Logout</button>
+        </a></li>
+    </ul>
+</nav>
+
+<!-- Mobile Navigation -->
+<div class="md:hidden fixed top-0 left-0 w-full bg-white shadow-lg py-4 px-8 z-50 flex justify-between items-center">
+    <div class="text-xl font-semibold">
+        <span class="text-gray-600">Temu</span>
+        <span class="text-black">Hobi</span>
+    </div>
+    <div class="block md:hidden">
+        <!-- Hamburger button -->
+        <button id="hamburger" class="focus:outline-none">
+            <svg id="hamburger-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+            <!-- Close (X) button, hidden initially -->
+            <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+        </button>
+    </div>
+</div>
+
+<!-- Mobile Menu -->
+<ul id="mobile-menu" class="md:hidden fixed top-16 left-0 w-full bg-white shadow-lg py-4 px-8 z-40 hidden">
+    <li class="hover:text-black transition transform hover:scale-110 cursor-pointer"><a href='#home'>Home</a></li>
+    <li class="hover:text-black transition transform hover:scale-110 cursor-pointer"><a>About</a></li>
+    <li class="hover:text-black transition transform hover:scale-110 cursor-pointer"><a>On Sales</a></li>
+    <li class="hover:text-black transition transform hover:scale-110 cursor-pointer"><a>New Arrival</a></li>
+    <li class="hover:text-black transition transform hover:scale-110 cursor-pointer"><a href="{% url 'main:logout' %}">
+        <button class="bg-red-400 text-white py-1 px-2 rounded-lg hover:bg-red-600 transition transform hover:scale-110" style="font-size: 0.8rem">Logout</button>
+    </a></li>
+</ul>
+
+<!-- Script to handle menu toggle -->
+<script>
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const hamburgerIcon = document.getElementById('hamburger-icon');
+    const closeIcon = document.getElementById('close-icon');
+
+    // Toggle the mobile menu and change icons
+    hamburger.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+        hamburgerIcon.classList.toggle('hidden');
+        closeIcon.classList.toggle('hidden');
+    });
+</script>

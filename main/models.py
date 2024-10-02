@@ -12,3 +12,4 @@ class ItemEntry (models.Model):
     rating = models.IntegerField()
     kategories = models.CharField(max_length=255, default='Sneakers')  
     time = models.DateTimeField(auto_now_add=True) 
+    image_url = models.URLField(max_length=2038)

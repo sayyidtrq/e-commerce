@@ -332,6 +332,186 @@ https://docs.google.com/document/d/13hFtp96QTZrZNLLXacsUZ_GF2Yfk1NmXjdpMHrSF9CI/
     return render(request, "main.html", context)
     ```
 
+# TUGAS 5 #
+
+##  Jika terdapat beberapa CSS selector untuk suatu elemen HTML, jelaskan urutan prioritas pengambilan CSS selector tersebut! ##
+- Urutan prioritas pengambilan CSS selector adalah sebagai berikut:
+    1. Inline CSS: Inline CSS memiliki prioritas tertinggi karena didefinisikan langsung pada elemen HTML.
+    2. Internal CSS: Internal CSS memiliki prioritas kedua setelah Inline CSS karena didefinisikan pada tag <style> di dalam tag <head>.
+    3. External CSS: External CSS memiliki prioritas terendah karena didefinisikan pada file eksternal CSS yang dihubungkan dengan tag <link> di dalam tag <head>.
+
+## Mengapa responsive design menjadi konsep yang penting dalam pengembangan aplikasi web? Berikan contoh aplikasi yang sudah dan belum menerapkan responsive design! ##
+
+- Responsive design menjadi konsep yang penting dalam pengembangan aplikasi web karena memungkinkan tampilan aplikasi web menyesuaikan ukuran layar perangkat pengguna. Dengan responsive design, pengguna dapat mengakses aplikasi web dengan nyaman dan mudah tanpa harus memperbesar atau memperkecil tampilan. Hal ini meningkatkan pengalaman pengguna dan memastikan aplikasi web dapat diakses oleh berbagai perangkat, seperti desktop, tablet, dan smartphone. Contoh aplikasi yang sudah menerapkan responsive design adalah Google, Facebook, dan Twitter. Sedangkan contoh aplikasi yang belum menerapkan responsive design adalah aplikasi web yang tampilannya tidak menyesuaikan ukuran layar perangkat pengguna sehingga terlihat terpotong atau tidak rapi.
+
+## Jelaskan perbedaan antara margin, border, dan padding, serta cara untuk mengimplementasikan ketiga hal tersebut! ##
+
+- Margin adalah jarak antara elemen HTML dengan elemen lain di sekitarnya. Margin digunakan untuk memberikan ruang kosong di sekitar elemen. Border adalah garis yang mengelilingi elemen HTML. Border digunakan untuk membatasi elemen dan memberikan efek visual. Padding adalah jarak antara konten elemen HTML dengan border. Padding digunakan untuk memberikan ruang kosong di antara konten dan border. Untuk mengimplementasikan margin, border, dan padding, kita dapat menggunakan properti CSS berikut:
+    - Margin: margin-top, margin-right, margin-bottom, margin-left
+    - Border: border-top, border-right, border-bottom, border-left
+    - Padding: padding-top, padding-right, padding-bottom, padding-left
+
+## Jelaskan konsep flex box dan grid layout beserta kegunaannya! ##
+
+- Flexbox adalah model layout CSS yang dirancang untuk menyusun elemen HTML dalam satu dimensi, baik secara horizontal maupun vertikal. Flexbox memungkinkan pengembang web untuk membuat tata letak yang responsif dan fleksibel tanpa menggunakan float atau positioning. Flexbox memiliki properti seperti justify-content, align-items, dan flex-direction yang memudahkan pengembang web untuk mengatur tata letak elemen. Grid layout adalah model layout CSS yang dirancang untuk menyusun elemen HTML dalam dua dimensi, baik secara baris maupun kolom. Grid layout memungkinkan pengembang web untuk membuat tata letak yang kompleks dan terstruktur dengan mudah. Grid layout memiliki properti seperti grid-template-columns, grid-template-rows, dan grid-gap yang memudahkan pengembang web untuk mengatur tata letak
+
+## Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial)! ##
+
+### Kustomisasi halaman login, register, dan tambah product semenarik mungkin. ###
+- implementasi styling menggunakan tailwind css , dengan tipe inline css dan internal css
+- menambahkan background image, warna, font, dan ukuran yang sesuai
+- menambahkan animasi dan transisi untuk membuat tampilan lebih menarik
+- menyesuaikan layout dan posisi elemen agar terlihat rapi dan mudah dibaca
+
+### Kustomisasi halaman daftar product menjadi lebih menarik dan responsive ###
+'''html
+    <section id="goodies" class="py-12 mb-20 mt-15">
+      <h2 class="text-3xl font-extrabold text-center mb-8">PRODUCT EXAMPLE</h2>
+      <div class="flex space-x-4 overflow-x-scroll px-10 scrollbar-hide" style="scrollbar-width: none; -ms-overflow-style: none; margin-right:15px;">
+        <img src="{% static 'images/ronaldo (1).png' %}" alt="{{name}}" class="w-60 h-75% object-contain transition-transform duration-50 ease-in-out transform hover:scale-110 hover:shadow-lg"style="padding:15px">
+        <img src="{% static 'images/barca.png' %}" alt="{{name}}" class="w-60 h-75% object-contain transition-transform duration-30 ease-in-out transform hover:scale-110 hover:shadow-lg"style="padding:15px">
+        <img src="{% static 'images/jordan1.png' %}" alt="{{name}}" class="w-60 h-75% object-contain transition-transform duration-30 ease-in-out transform hover:scale-110 hover:shadow-lg"style="padding:15px">
+        <img src="{% static 'images/jordan2.png' %}" alt="{{name}}" class="w-60 h-75% object-contain transition-transform duration-30 ease-in-out transform hover:scale-110 hover:shadow-lg"style="padding:15px">
+        <img src="{% static 'images/jordan3.png' %}" alt="{{name}}" class="w-60 h-75% object-contain transition-transform duration-30 ease-in-out transform hover:scale-110 hover:shadow-lg"style="padding:15px">
+        <img src="{% static 'images/char.png' %}" alt="{{name}}" class="w-60 h-60% object-contain transition-transform duration-30 ease-in-out transform hover:scale-110 hover:shadow-lg"style="padding:15px">
+        <img src="{% static 'images/hw1.png' %}" alt="{{name}}" class="w-60 h-75% object-contain transition-transform duration-30 ease-in-out transform hover:scale-110 hover:shadow-lg"style="padding:15px">
+        <img src="{% static 'images/hw2.png' %}" alt="{{name}}" class="w-60 h-75% object-contain transition-transform duration-30 ease-in-out transform hover:scale-110 hover:shadow-lg"style="padding:15px">
+      </div>
+    </section>
+    <section id="add-item" class="py-12">
+    <div class="flex flex-col md:flex-row justify-center space-y-4 md:space-x-4 md:space-y-0 items-center">
+          <a href="{% url 'main:create_item' %}">
+              <button class="bg-black text-white py-2 px-6 rounded-lg hover:bg-gray-800 transition transform hover:scale-105">Add New Item</button>
+          </a>
+      </div>
+      {% if not itemEntry %}
+      <div class="flex flex-col items-center justify-center min-h-[24rem] p-6">
+          <img src="{% static 'images/sad.png' %}" alt="Sad face" class="w-32 h-32 mb-4"/>
+          <p class="text-center text-gray-600 mt-4">Belum ada data item pada web</p>
+      </div>
+      {% else %}
+      <div class="flex space-x-4 overflow-x-scroll px-10 scrollbar-hide mt-[20px]" style="scrollbar-width: none; -ms-overflow-style: none; margin-right:15px;">
+          {% for item_entry in itemEntry %}
+              {% include 'card_item.html' with item_entry=item_entry %}
+          {% endfor %}
+      </div>
+      {% endif %}
+      <div class="relative grid grid-cols-1 z-30 md:grid-cols-3 gap-8 mt-[30px] mx-[20px]">
+        {% include "card_info.html" with title='NPM' value=npm %}
+        {% include "card_info.html" with title='Name' value=nama_owner %}
+        {% include "card_info.html" with title='Class' value=kelas %}
+      </div>
+      <h5 class="text-center mt-2">Sesi terakhir login: {{ last_login }}</h5>
+    </div>
+  </section>
+'''
+
+### Jika pada aplikasi belum ada product yang tersimpan, halaman daftar product akan menampilkan gambar dan pesan bahwa belum ada product yang terdaftar  ###
+
+'''html
+   {% if not itemEntry %}
+      <div class="flex flex-col items-center justify-center min-h-[24rem] p-6">
+          <img src="{% static 'images/sad.png' %}" alt="Sad face" class="w-32 h-32 mb-4"/>
+          <p class="text-center text-gray-600 mt-4">Belum ada data item pada web</p>
+      </div>
+      {% else %}
+'''
+
+### Jika sudah ada product yang tersimpan, halaman daftar product akan menampilkan detail setiap product dengan menggunakan card (tidak boleh sama persis dengan desain pada Tutorial!). ###
+
+'''html
+    <div class="flex space-x-4 overflow-x-scroll px-10 scrollbar-hide mt-[20px]" style="scrollbar-width: none; -ms-overflow-style: none; margin-right:15px;">
+          {% for item_entry in itemEntry %}
+              {% include 'card_item.html' with item_entry=item_entry %}
+          {% endfor %}
+      </div>
+      {% endif %}
+      <div class="relative grid grid-cols-1 z-30 md:grid-cols-3 gap-8 mt-[30px] mx-[20px]">
+        {% include "card_info.html" with title='NPM' value=npm %}
+        {% include "card_info.html" with title='Name' value=nama_owner %}
+        {% include "card_info.html" with title='Class' value=kelas %}
+      </div>
+      <h5 class="text-center mt-2">Sesi terakhir login: {{ last_login }}</h5>
+    </div>
+'''
+
+###  Untuk setiap card product, buatlah dua buah button untuk mengedit dan menghapus product pada card tersebut!  ###
+'''html
+    <div class = "rounded-xl shadow-lg bg-gray-400 p-4 hover:animate-pulse">
+    <div class = "p-5 flex flex-col"> 
+        <div class= "rounded-xl overflow-hidden">
+            <h1 class = "text-2xl font-semibold text-center">{{item_entry.name}}</h1>
+            <p class = "text-center text-gray-600">{{item_entry.description}}</p>
+            <p class = "text-center text-gray-600">Rp{{item_entry.price}}</p>
+            <p class = "text-center text-gray-600">{{item_entry.rarity}}/10</p>
+            <p class = "text-center text-gray-600">{{item_entry.kategories}}</p>
+            <div class = "flex justify-center gap-[15px] mt-[8px]">
+                <a href="{% url 'main:edit_item' item_entry.pk %}">
+                    <button class = "bg-blue-600 text-white py-2 px-6 rounded-lg hover:bg-white hover:text-gray-600 transition transform hover:scale-105">Edit</button>
+                </a>
+                <a href="{% url 'main:delete_item' item_entry.pk %}" onclick="return confirmDelete()">
+                    <button class = "bg-red-600 text-white py-2 px-6 rounded-lg hover:bg-white hover:text-gray-600 transition transform hover:scale-105">Delete</button>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+'''
+
+###  Buatlah navigation bar (navbar) untuk fitur-fitur pada aplikasi yang responsive terhadap perbedaan ukuran device, khususnya mobile dan desktop. ###
+'''html
+<!-- Mobile Navigation -->
+<div class="md:hidden fixed top-0 left-0 w-full bg-white shadow-lg py-4 px-8 z-50 flex justify-between items-center">
+    <div class="text-xl font-semibold">
+        <span class="text-gray-600">Temu</span>
+        <span class="text-black">Hobi</span>
+    </div>
+    <div class="block md:hidden">
+        <!-- Hamburger button -->
+        <button id="hamburger" class="focus:outline-none">
+            <svg id="hamburger-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+            <!-- Close (X) button, hidden initially -->
+            <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+        </button>
+    </div>
+</div>
+
+<!-- Mobile Menu -->
+<ul id="mobile-menu" class="md:hidden fixed top-16 left-0 w-full bg-white shadow-lg py-4 px-8 z-40 hidden">
+    <li class="hover:text-black transition transform hover:scale-110 cursor-pointer"><a href='#home'>Home</a></li>
+    <li class="hover:text-black transition transform hover:scale-110 cursor-pointer"><a>About</a></li>
+    <li class="hover:text-black transition transform hover:scale-110 cursor-pointer"><a>On Sales</a></li>
+    <li class="hover:text-black transition transform hover:scale-110 cursor-pointer"><a>New Arrival</a></li>
+    <li class="hover:text-black transition transform hover:scale-110 cursor-pointer"><a href="{% url 'main:logout' %}">
+        <button class="bg-red-400 text-white py-1 px-2 rounded-lg hover:bg-red-600 transition transform hover:scale-110" style="font-size: 0.8rem">Logout</button>
+    </a></li>
+</ul>
+
+<!-- Script to handle menu toggle -->
+<script>
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const hamburgerIcon = document.getElementById('hamburger-icon');
+    const closeIcon = document.getElementById('close-icon');
+
+    // Toggle the mobile menu and change icons
+    hamburger.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+        hamburgerIcon.classList.toggle('hidden');
+        closeIcon.classList.toggle('hidden');
+    });
+</script>
+'''
+
+
+
+
+
+
 
 
 
