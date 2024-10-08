@@ -364,7 +364,7 @@ https://docs.google.com/document/d/13hFtp96QTZrZNLLXacsUZ_GF2Yfk1NmXjdpMHrSF9CI/
 - menyesuaikan layout dan posisi elemen agar terlihat rapi dan mudah dibaca
 
 ### Kustomisasi halaman daftar product menjadi lebih menarik dan responsive ###
-'''html
+```html
     <section id="goodies" class="py-12 mb-20 mt-15">
       <h2 class="text-3xl font-extrabold text-center mb-8">PRODUCT EXAMPLE</h2>
       <div class="flex space-x-4 overflow-x-scroll px-10 scrollbar-hide" style="scrollbar-width: none; -ms-overflow-style: none; margin-right:15px;">
@@ -404,22 +404,22 @@ https://docs.google.com/document/d/13hFtp96QTZrZNLLXacsUZ_GF2Yfk1NmXjdpMHrSF9CI/
       <h5 class="text-center mt-2">Sesi terakhir login: {{ last_login }}</h5>
     </div>
   </section>
-'''
+```
 
 ### Jika pada aplikasi belum ada product yang tersimpan, halaman daftar product akan menampilkan gambar dan pesan bahwa belum ada product yang terdaftar  ###
 
-'''html
+```html
    {% if not itemEntry %}
       <div class="flex flex-col items-center justify-center min-h-[24rem] p-6">
           <img src="{% static 'images/sad.png' %}" alt="Sad face" class="w-32 h-32 mb-4"/>
           <p class="text-center text-gray-600 mt-4">Belum ada data item pada web</p>
       </div>
       {% else %}
-'''
+```
 
 ### Jika sudah ada product yang tersimpan, halaman daftar product akan menampilkan detail setiap product dengan menggunakan card (tidak boleh sama persis dengan desain pada Tutorial!). ###
 
-'''html
+```html
     <div class="flex space-x-4 overflow-x-scroll px-10 scrollbar-hide mt-[20px]" style="scrollbar-width: none; -ms-overflow-style: none; margin-right:15px;">
           {% for item_entry in itemEntry %}
               {% include 'card_item.html' with item_entry=item_entry %}
@@ -433,10 +433,10 @@ https://docs.google.com/document/d/13hFtp96QTZrZNLLXacsUZ_GF2Yfk1NmXjdpMHrSF9CI/
       </div>
       <h5 class="text-center mt-2">Sesi terakhir login: {{ last_login }}</h5>
     </div>
-'''
+```
 
 ###  Untuk setiap card product, buatlah dua buah button untuk mengedit dan menghapus product pada card tersebut!  ###
-'''html
+```html
     <div class = "rounded-xl shadow-lg bg-gray-400 p-4 hover:animate-pulse">
     <div class = "p-5 flex flex-col"> 
         <div class= "rounded-xl overflow-hidden">
@@ -456,10 +456,10 @@ https://docs.google.com/document/d/13hFtp96QTZrZNLLXacsUZ_GF2Yfk1NmXjdpMHrSF9CI/
         </div>
     </div>
 </div>
-'''
+```
 
 ###  Buatlah navigation bar (navbar) untuk fitur-fitur pada aplikasi yang responsive terhadap perbedaan ukuran device, khususnya mobile dan desktop. ###
-'''html
+```html
 <!-- Mobile Navigation -->
 <div class="md:hidden fixed top-0 left-0 w-full bg-white shadow-lg py-4 px-8 z-50 flex justify-between items-center">
     <div class="text-xl font-semibold">
@@ -469,17 +469,13 @@ https://docs.google.com/document/d/13hFtp96QTZrZNLLXacsUZ_GF2Yfk1NmXjdpMHrSF9CI/
     <div class="block md:hidden">
         <!-- Hamburger button -->
         <button id="hamburger" class="focus:outline-none">
-            <svg id="hamburger-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-            </svg>
+            <svg id="hamburger-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path> </svg>
             <!-- Close (X) button, hidden initially -->
-            <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-            </svg>
+            <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path> </svg>
         </button>
     </div>
 </div>
-
+                
 <!-- Mobile Menu -->
 <ul id="mobile-menu" class="md:hidden fixed top-16 left-0 w-full bg-white shadow-lg py-4 px-8 z-40 hidden">
     <li class="hover:text-black transition transform hover:scale-110 cursor-pointer"><a href='#home'>Home</a></li>
@@ -505,7 +501,365 @@ https://docs.google.com/document/d/13hFtp96QTZrZNLLXacsUZ_GF2Yfk1NmXjdpMHrSF9CI/
         closeIcon.classList.toggle('hidden');
     });
 </script>
-'''
+```
+
+# Tugas 6 #
+
+### Mengubah tugas 5 menjadi menggunakan AJAX ###
+
+### Menjawab beberapa pertanyaan berikut pada README.md pada root folder (silakan modifikasi README.md yang telah kamu buat sebelumnya; tambahkan subjudul untuk setiap tugas). ###
+
+#### Jelaskan manfaat dari penggunaan JavaScript dalam pengembangan aplikasi web! ####
+- JavaScript memungkinkan pengembang untuk membuat aplikasi web yang interaktif dan dinamis.
+- JavaScript memungkinkan pengembang untuk membuat aplikasi web yang responsif terhadap input pengguna.
+- JavaScript memungkinkan pengembang untuk membuat aplikasi web yang dapat berkomunikasi dengan server tanpa perlu me-refresh halaman.
+- JavaScript memungkinkan pengembang untuk membuat aplikasi web yang dapat berjalan di berbagai platform dan perangkat.
+
+#### Jelaskan fungsi dari penggunaan await ketika kita menggunakan fetch()! Apa yang akan terjadi jika kita tidak menggunakan await?####
+- await digunakan untuk menunggu hingga fetch() selesai mengambil data dari server.
+- Jika tidak menggunakan await, fetch() akan mengembalikan Promise yang belum selesai, sehingga kode selanjutnya akan dijalankan sebelum fetch() selesai.
+- Dengan menggunakan await, kode selanjutnya akan dijalankan setelah fetch() selesai, sehingga kita dapat memastikan bahwa data yang diambil sudah tersedia sebelum kode selanjutnya dijalankan.
+
+#### Mengapa kita perlu menggunakan decorator csrf_exempt pada view yang akan digunakan untuk AJAX POST? ####
+- Kita perlu menggunakan decorator csrf_exempt pada view yang akan digunakan untuk AJAX POST agar request POST yang dikirimkan melalui AJAX tidak memerlukan token CSRF.
+- Jika kita tidak menggunakan csrf_exempt, maka Django akan menolak request POST yang dikirimkan melalui AJAX karena tidak menyertakan token CSRF.
+- Dengan menggunakan csrf_exempt, kita memastikan bahwa request POST yang dikirimkan melalui AJAX dapat diterima oleh Django tanpa memerlukan token CSRF.
+
+#### pembersihan data input pengguna dilakukan di belakang (backend) juga. Mengapa hal tersebut tidak dilakukan di frontend saja? ####
+- Pembersihan data input pengguna dilakukan di belakang (backend) juga untuk memastikan bahwa data yang disimpan di basis data sudah bersih dan aman.
+- Jika pembersihan data dilakukan di frontend saja, maka data yang disimpan di basis data masih bisa saja mengandung kode berbahaya atau data yang tidak valid.
+- Dengan melakukan pembersihan data di belakang (backend), kita dapat memastikan bahwa data yang disimpan di basis data sudah bersih dan aman dari serangan XSS atau SQL Injection.
+
+#### Menjelaskan Checklist diatas secara step-by-step (bukan hanya sekadar mengikuti tutorial). ####
+
+#### AJAX get ####
+- ubahlah kode cards data mood agar dapat menggunakan AJAX GET
+```javascript
+   async function refreshItemEntries(){
+    document.getElementById("item_entry_cards").innerHTML = "";
+    document.getElementById("item_entry_cards").className = "";
+    const itemEntries = await getItemEntries();
+    let htmlString = "";
+    let classNameString ="";
+    if(itemEntries.length === 0){
+      classNameString = "flex flex-col items-center justify-center min-h-[24rem] p-6";
+      htmlString = `
+        <div class="flex flex-col items-center justify-center min-h-[24rem] p-6">
+            <img src="{% static 'images/sad.png' %}" alt="Sad face" class="w-32 h-32 mb-4"/>
+            <p class="text-center text-gray-600 mt-4">Belum ada data item pada web</p>
+        </div>
+      `;
+    }
+    else{
+      classNameString = "relative grid grid-cols-1 z-30 md:grid-cols-3 gap-8 mt-[30px] mx-[20px]";
+      itemEntries.forEach((item) => {
+        const name = DOMPurify.sanitize(item.name);
+        const price = DOMPurify.sanitize(item.price);
+        const description = DOMPurify.sanitize(item.description);
+        const rarity = DOMPurify.sanitize(item.rarity);
+        const rating = DOMPurify.sanitize(item.rating);
+        const image_url = DOMPurify.sanitize(item.image_url);
+        htmlString += `
+        <div class="rounded-xl my-[15px] shadow-lg bg-white transition-transform duration-300 ease-in-out transform hover:scale-105 hover:shadow-xl w-[300px] h-[400px]">
+          <div class="flex flex-col h-full">
+              <!-- Image Section -->
+              <div class="rounded-t-xl">
+                  <img src=${item.fields.image_url} alt=${item.fields.name} class="w-full h-40 object-contain shadow-md">
+              </div>
+
+              <!-- Text Section -->
+              <div class="text-area p-4 flex-1 flex flex-col justify-between">
+                  <!-- Rating and Categories --> 
+                  <div class="rating-kategories px-2 flex justify-center mb-2 space-x-2">
+                      <p class="py-1 px-2 text-gray-700 text-xs font-semibold rounded-md border bg-neutral-300 inline-block">${item.fields.kategories}</p>
+                      <p class="py-1 px-2 text-gray-800 text-xs font-semibold rounded-md border bg-neutral-400 inline-block">${item.fields.rating}/10</p>
+                  </div>
+
+                  <!-- Item Name -->
+                  <h1 class="text-stone-800 text-lg font-semibold text-left animate-pulse">${item.fields.name}</h1>
+
+                  <!-- Price -->
+                  <p class="mt-1 text-stone-600 text-md font-bold text-left">Rp${item.fields.price}</p>
+
+                  <!-- Scrollable Description -->
+                  <div class="mt-2 text-gray-600 text-xs h-16 overflow-y-auto overflow-x-hidden" style="scrollbar-width: none; -ms-overflow-style: none;">
+                      <p class="text-center">${item.fields.description}</p>
+                  </div>
+
+                  <!-- Action Buttons -->
+                  <div class="flex justify-center gap-4 mt-4">
+                      <a href="/edit-item/${item.pk}">
+                          <button class="bg-neutral-400 text-white py-1 px-3 rounded-lg hover:bg-white hover:text-gray-600 transition transform hover:scale-105">Edit</button>
+                      </a>
+                      <a href="/delete/${item.pk}" onclick="return confirmDelete()">
+                          <button class="bg-red-900 text-white py-1 px-3 rounded-lg hover:bg-white hover:text-gray-600 transition transform hover:scale-105">Delete</button>
+                      </a>
+                  </div>
+              </div>
+          </div>
+      </div>
+        `;
+      })
+    }
+    document.getElementById("item_entry_cards").innerHTML = htmlString;
+    document.getElementById("item_entry_cards").className = classNameString;
+  }
+```
+- Lakukan pengambilan data menggunakan AJAX GET
+
+```javascript
+    async function getItemEntries(){
+      return fetch("{% url 'main:show_json' %}").then((res) => res.json())
+  }
+    //views.py
+    def show_xml(request):
+        data = ItemEntry.objects.filter(user=request.user)
+        return HttpResponse(serializers.serialize("xml", data), content_type="application/xml")
+
+    def show_json(request):
+        data = ItemEntry.objects.filter(user=request.user)
+        return HttpResponse(serializers.serialize("json", data), content_type="application/json")
+
+```
+
+#### AJAX post ####
+- Buatlah sebuah tombol yang membuka sebuah modal dengan form untuk menambahkan mood.
+```html
+   <div id="crudModal" class="hidden fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+        <div id="crudModalContent" class="relative bg-white rounded-lg shadow-lg w-5/6 sm:w-3/4 md:w-1/2 lg:w-1/3 mx-4 sm:mx-0 transform scale-95 opacity-0 transition-transform transition-opacity duration-300 ease-out">
+            <!-- Modal header -->
+            <div class="flex items-center justify-between p-4 border-b rounded-t">
+                <h3 class="text-xl font-semibold text-gray-900">Add New Item Entry</h3>
+                <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center" id="closeModalBtn">
+                    <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                    <span class="sr-only">Close modal</span>
+                </button>
+            </div>
+            <!-- Modal body -->
+            <div class="px-6 py-4 space-y-6 form-style">
+                <form id="itemEntryForm">
+                    <div class="mb-2">
+                        <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
+                        <input type="text" id="name" name="name" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
+                    </div>
+                    <div class="mb-2">
+                        <label for="price" class="block text-sm font-medium text-gray-700">Price</label>
+                        <input type="number" id="price" name="price" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
+                    </div>
+                    <div class="mb-2">
+                        <label for="description" class="block text-sm font-medium text-gray-700">Description</label>
+                        <textarea id="description" name="description" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required></textarea>
+                    </div>
+                    <div class="mb-2">
+                        <label for="image_url" class="block text-sm font-medium text-gray-700">Image URL</label>
+                        <input type="url" id="image_url" name="image_url" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
+                    </div>
+                    <div class="mb-2">
+                        <label for="rating" class="block text-sm font-medium text-gray-700">Rating</label>
+                        <input type="number" id="rating" name="rating" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
+                    </div>
+                    <div class="mb-2">
+                        <label for="kategories" class="block text-sm font-medium text-gray-700">Categories</label>
+                        <input type="text" id="kategories" name="kategories" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
+                    </div>
+                    <div class="mb-2">
+                        <label for="rarity" class="block text-sm font-medium text-gray-700">Rarity</label>
+                        <input type="text" id="rarity" name="rarity" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
+                    </div>
+                </form>
+                <!-- Modal footer -->
+                <div class="flex flex-col space-y-2 md:flex-row md:space-y-0 md:space-x-2 p-6 border-t border-gray-200 rounded-b justify-center md:justify-end">
+                    <button type="button" class="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-lg" id="cancelButton">Cancel</button>
+                    <button type="submit" id="submitItemEntry" form="itemEntryForm" class="bg-indigo-700 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded-lg">Save</button>
+                </div>
+            </div>
+        </div>
+    </div
+```
+
+- Buatlah fungsi untuk menambahkan mood menggunakan AJAX POST
+```javascript
+    function addItemEntry(){
+    fetch("{% url 'main:create_item_ajax' %}", {
+        method: "POST",
+        body: new FormData(document.querySelector("#itemEntryForm")),
+    }).then((response) => refreshItemEntries());
+
+    document.getElementById("itemEntryForm").reset();
+    document.querySelector("[data-modal-target='crudModal']").click(); // Close the modal after form submission
+
+    return false;
+  }
+
+  async function getItemEntries(){
+      return fetch("{% url 'main:show_json' %}").then((res) => res.json())
+  }
+  async function refreshItemEntries(){
+    document.getElementById("item_entry_cards").innerHTML = "";
+    document.getElementById("item_entry_cards").className = "";
+    const itemEntries = await getItemEntries();
+    let htmlString = "";
+    let classNameString ="";
+
+    if(itemEntries.length === 0){
+      classNameString = "flex flex-col items-center justify-center min-h-[24rem] p-6";
+      htmlString = `
+        <div class="flex flex-col items-center justify-center min-h-[24rem] p-6">
+            <img src="{% static 'images/sad.png' %}" alt="Sad face" class="w-32 h-32 mb-4"/>
+            <p class="text-center text-gray-600 mt-4">Belum ada data item pada web</p>
+        </div>
+      `;
+    }
+    else{
+      classNameString = "relative grid grid-cols-1 z-30 md:grid-cols-3 gap-8 mt-[30px] mx-[20px]";
+      itemEntries.forEach((item) => {
+        const name = DOMPurify.sanitize(item.name);
+        const price = DOMPurify.sanitize(item.price);
+        const description = DOMPurify.sanitize(item.description);
+        const rarity = DOMPurify.sanitize(item.rarity);
+        const rating = DOMPurify.sanitize(item.rating);
+        const image_url = DOMPurify.sanitize(item.image_url);
+        htmlString += `
+        <div class="rounded-xl my-[15px] shadow-lg bg-white transition-transform duration-300 ease-in-out transform hover:scale-105 hover:shadow-xl w-[300px] h-[400px]">
+          <div class="flex flex-col h-full">
+              <!-- Image Section -->
+              <div class="rounded-t-xl">
+                  <img src=${item.fields.image_url} alt=${item.fields.name} class="w-full h-40 object-contain shadow-md">
+              </div>
+
+              <!-- Text Section -->
+              <div class="text-area p-4 flex-1 flex flex-col justify-between">
+                  <!-- Rating and Categories --> 
+                  <div class="rating-kategories px-2 flex justify-center mb-2 space-x-2">
+                      <p class="py-1 px-2 text-gray-700 text-xs font-semibold rounded-md border bg-neutral-300 inline-block">${item.fields.kategories}</p>
+                      <p class="py-1 px-2 text-gray-800 text-xs font-semibold rounded-md border bg-neutral-400 inline-block">${item.fields.rating}/10</p>
+                  </div>
+
+                  <!-- Item Name -->
+                  <h1 class="text-stone-800 text-lg font-semibold text-left animate-pulse">${item.fields.name}</h1>
+
+                  <!-- Price -->
+                  <p class="mt-1 text-stone-600 text-md font-bold text-left">Rp${item.fields.price}</p>
+
+                  <!-- Scrollable Description -->
+                  <div class="mt-2 text-gray-600 text-xs h-16 overflow-y-auto overflow-x-hidden" style="scrollbar-width: none; -ms-overflow-style: none;">
+                      <p class="text-center">${item.fields.description}</p>
+                  </div>
+
+                  <!-- Action Buttons -->
+                  <div class="flex justify-center gap-4 mt-4">
+                      <a href="/edit-item/${item.pk}">
+                          <button class="bg-neutral-400 text-white py-1 px-3 rounded-lg hover:bg-white hover:text-gray-600 transition transform hover:scale-105">Edit</button>
+                      </a>
+                      <a href="/delete/${item.pk}" onclick="return confirmDelete()">
+                          <button class="bg-red-900 text-white py-1 px-3 rounded-lg hover:bg-white hover:text-gray-600 transition transform hover:scale-105">Delete</button>
+                      </a>
+                  </div>
+              </div>
+          </div>
+      </div>
+        `;
+      })
+    }
+    document.getElementById("item_entry_cards").innerHTML = htmlString;
+    document.getElementById("item_entry_cards").className = classNameString;
+  }
+```
+
+- Buatlah fungsi view baru untuk menambahkan mood baru ke dalam basis data.
+```python
+    @csrf_exempt
+    @require_POST
+    def create_item_ajax(request):
+        user = request.user
+        name = strip_tags(request.POST.get('name'))
+        price = strip_tags(request.POST.get('price'))
+        description = strip_tags(request.POST.get('description'))
+        rarity = strip_tags(request.POST.get('rarity'))
+        rating = strip_tags(request.POST.get('rating'))
+        kategories = strip_tags(request.POST.get('kategories'))
+        image_url = strip_tags(request.POST.get('image_url'))
+        new_item = ItemEntry(
+            user=user,
+            name=name,
+            price=price,
+            description=description,
+            rarity=rarity,
+            rating=rating,
+            kategories=kategories,
+            image_url=image_url
+        )
+    new_item.save()
+    return HttpResponse(b"CREATED ITEM", status=201)
+```
+
+- Buatlah path /create-ajax/ yang mengarah ke fungsi view yang baru kamu buat.
+```python
+    path('create-ajax/', views.create_item_ajax, name='create_item_ajax'),
+```
+- Hubungkan form yang telah kamu buat di dalam modal kamu ke path /create-ajax/.
+```html
+    <div id="crudModal" class="hidden fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+        <div id="crudModalContent" class="relative bg-white rounded-lg shadow-lg w-5/6 sm:w-3/4 md:w-1/2 lg:w-1/3 mx-4 sm:mx-0 transform scale-95 opacity-0 transition-transform transition-opacity duration-300 ease-out">
+            <!-- Modal header -->
+            <div class="flex items-center justify-between p-4 border-b rounded-t">
+                <h3 class="text-xl font-semibold text-gray-900">Add New Item Entry</h3>
+                <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center" id="closeModalBtn">
+                    <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                    <span class="sr-only">Close modal</span>
+                </button>
+            </div>
+            <!-- Modal body -->
+            <div class="px-6 py-4 space-y-6 form-style">
+                <form id="itemEntryForm">
+                    <div class="mb-2">
+                        <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
+                        <input type="text" id="name" name="name" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
+                    </div>
+                    <div class="mb-2">
+                        <label for="price" class="block text-sm font-medium text-gray-700">Price</label>
+                        <input type="number" id="price" name="price" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
+                    </div>
+                    <div class="mb-2">
+                        <label for="description" class="block text-sm font-medium text-gray-700">Description</label>
+                        <textarea id="description" name="description" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required></textarea>
+                    </div>
+                    <div class="mb-2">
+                        <label for="image_url" class="block text-sm font-medium text-gray-700">Image URL</label>
+                        <input type="url" id="image_url" name="image_url" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
+                    </div>
+                    <div class="mb-2">
+                        <label for="rating" class="block text-sm font-medium text-gray-700">Rating</label>
+                        <input type="number" id="rating" name="rating" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
+                    </div>
+                    <div class="mb-2">
+                        <label for="kategories" class="block text-sm font-medium text-gray-700">Categories</label>
+                        <input type="text" id="kategories" name="kategories" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
+                    </div>
+                    <div class="mb-2">
+                        <label for="rarity" class="block text-sm font-medium text-gray-700">Rarity</label>
+                        <input type="text" id="rarity" name="rarity" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
+                    </div>
+                </form>
+                <!-- Modal footer -->
+                <div class="flex flex-col space-y-2 md:flex-row md:space-y-0 md:space-x-2 p-6 border-t border-gray-200 rounded-b justify-center md:justify-end">
+                    <button type="button" class="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-lg" id="cancelButton">Cancel</button>
+                    <button type="submit" id="submitItemEntry" form="itemEntryForm" class="bg-indigo-700 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded-lg">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+```
+
+-Lakukan refresh pada halaman utama secara asinkronus untuk menampilkan daftar mood terbaru tanpa reload halaman utama secara keseluruhan.
+```html
+    <img src=image.png alt="Logo" class="w-32 h-32"/>
+```
+
+
+    
+
+
 
 
 

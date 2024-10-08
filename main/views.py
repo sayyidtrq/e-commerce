@@ -11,11 +11,13 @@ from django.contrib.auth.decorators import login_required
 import datetime
 from django.http import HttpResponseRedirect
 from django.urls import reverse
+from django.views.decorators.csrf import csrf_exempt
+from django.views.decorators.http import require_POST
+from django.utils.html import strip_tags
+
 
 @login_required(login_url='/login')
 def show_main(request):
-    itemEntry = ItemEntry.objects.filter(user=request.user)
-
     context = {
         'nama_orang': request.user.username,
         'name': '2009 Barcelona Jersey',
@@ -27,7 +29,6 @@ def show_main(request):
         'nama_owner': 'Sayyid',
         'npm': '2306275714',
         'kelas': 'Kelas B',
-        'itemEntry': itemEntry,
         'last_login': request.COOKIES['last_login']
     }
 
@@ -64,6 +65,34 @@ def create_item(request):
     context = {'form': form}
     return render(request, "create_item.html", context)
 
+@csrf_exempt
+@require_POST
+def create_item_ajax(request):
+    user = request.user
+    name = strip_tags(request.POST.get('name'))
+    price = strip_tags(request.POST.get('price'))
+    description = strip_tags(request.POST.get('description'))
+    rarity = strip_tags(request.POST.get('rarity'))
+    rating = strip_tags(request.POST.get('rating'))
+    kategories = strip_tags(request.POST.get('kategories'))
+    image_url = strip_tags(request.POST.get('image_url'))
+
+    new_item = ItemEntry(
+        user=user,
+        name=name,
+        price=price,
+        description=description,
+        rarity=rarity,
+        rating=rating,
+        kategories=kategories,
+        image_url=image_url
+    )
+
+    new_item.save()
+
+    return HttpResponse(b"CREATED ITEM", status=201)
+                                                                                                                                            
+
 def edit_item(request, id):
     item = ItemEntry.objects.get(pk=id)
 
@@ -85,14 +114,12 @@ def delete_item(request, id):
     # Kembali ke halaman awal
     return HttpResponseRedirect(reverse('main:show_main'))
 
-
-
 def show_xml(request):
-    data = ItemEntry.objects.all()
+    data = ItemEntry.objects.filter(user=request.user)
     return HttpResponse(serializers.serialize("xml", data), content_type="application/xml")
 
 def show_json(request):
-    data = ItemEntry.objects.all()
+    data = ItemEntry.objects.filter(user=request.user)
     return HttpResponse(serializers.serialize("json", data), content_type="application/json")
 
 def show_xml_by_id(request, id):
